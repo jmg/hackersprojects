@@ -4,8 +4,8 @@
 
 <div class="jumbotron">
     <h1>The Open Source Combinator</h1>
-    <p class="lead">It's like Hackers News but for your Github Projects.<br> Post, vote, comment, contribute open source projects and make the community grow! </p>
-    <p><a class="btn-github" href="{{GITHUB_AUHT_URL}}">Sign in with <b>GitHub</b></a></p>
+    <p class="lead">It's like Hackers News but for your Github Projects.<br> Share, vote, comment, contribute open source projects and make the community grow! </p>
+    <p><a class="btn-github" href="{% if not profile %}{{GITHUB_AUHT_URL}}{% else %}/user/projects{% endif %}">Sign in with <b>GitHub</b></a></p>
 </div>
 
 <hr>      
@@ -14,29 +14,16 @@
 
 <div class="row-fluid marketing">    
 
+    {% for column in projects_columns %}
     <div class="span6">
 
-        <h4>Subheading</h4>
-        <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-        <h4>Subheading</h4>
-        <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-        <h4>Subheading</h4>
-        <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+        {% for project in column %}
+        <h4><a href="{{project.repository.url}}">{{project.repository.name}}</a></h4>
+        <p>{{project.repository.description}}</p>
+        {% endfor %}
     </div>
+    {% endfor %}
 
-    <div class="span6">
-
-        <h4>Subheading</h4>
-        <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-        <h4>Subheading</h4>
-        <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-        <h4>Subheading</h4>
-        <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-    </div>
 </div>
 
 {% endblock %}

@@ -8,6 +8,7 @@ function vote(projectId) {
 
         var response = JSON.parse(response);
         $("#counter-" + projectId).text(response.votes);
+        $("#arrow-" + projectId).hide();
     });
 }
 </script>
@@ -21,11 +22,11 @@ function vote(projectId) {
 
     {% for project in projects %}
         <ul>
-            <li>                
-                <span id="counter-{{project.id}}">{{project.votes}}</span>
+            <li>
                 {% if not profile in project.voted_by.all %}
-                <img onclick="vote({{project.id}})" class="img-up" src="/media/img/up.png"></a>
-                {% endif %}
+                <img id="arrow-{{project.id}}" onclick="vote({{project.id}})" class="img-up" src="/media/img/up.png"></a>
+                {% endif %}                
+                <span id="counter-{{project.id}}">{{project.votes}}</span>                
                 <a class="project-repo-link" href="{{project.repository.url}}" target="_blank">{{project.repository.name}}</a> - {{project.repository.description}}
             </li>
         </ul>
