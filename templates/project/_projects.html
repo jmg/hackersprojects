@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block js %}
+<script type="text/javascript">
+function vote(projectId) {
+
+    $.post("/user/vote/", {"project": projectId }, function(response) {
+
+        var response = JSON.parse(response);
+        $("#counter-" + projectId).text(response.votes);
+    });
+}
+</script>
+{% endblock %}
+
+{% block content %} 
+
+{% block title%}{% endblock %}
+
+<div class="row-fluid marketing">    
+
+    {% for project in projects %}
+        <ul>
+            <li>                
+                <span id="counter-{{project.id}}">{{project.votes}}</span>
+                {% if not profile in project.voted_by.all %}
+                <img onclick="vote({{project.id}})" class="img-up" src="/media/img/up.png"></a>
+                {% endif %}
+                <a class="project-repo-link" href="{{project.repository.url}}" target="_blank">{{project.repository.name}}</a> - {{project.repository.description}}
+            </li>
+        </ul>
+    {% endfor %}
+</div>
+
+{% endblock %}

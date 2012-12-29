@@ -1,0 +1,12 @@
+{% for repo in repositories %}
+<ul>
+    <li>
+        {% if not repo.shared %}
+        <button id="btn-share-{{repo.id}}" onclick="share({{repo.id}})" class="btn btn-primary">Share</button> 
+        {% else %}
+        <button onclick="return false;" class="btn btn-info">Shared</button> 
+        {% endif %}
+        <a class="repo-link" href="{{repo.url}}" target="_blank">{{repo.name}}</a> - {{repo.description}}
+    </li>
+</ul>
+{% endfor %}

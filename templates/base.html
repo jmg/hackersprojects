@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Hackers Projects</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <link href="/media/css/style.css" rel="stylesheet" media="screen">
+
+        <link href="/media/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"> <link href="/media/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">        
+    </head>
+
+    <body>
+        
+        <div class="container-narrow">
+
+            <div id="content-wrapper">
+
+                <div class="masthead">
+                    <ul class="nav nav-pills pull-right">
+                        {% if not profile %}
+                        <li class="active"><a href="/">Home</a></li>
+                        {% endif %}
+                        <li><a href="/trending">Trending</a></li>
+                        <li><a href="/new">New</a></li>      
+                        <li><a href="/about">About</a></li>
+                        {% if profile %}<li><a href="/user/projects">My projects</a></li>{% endif %}                        
+                    </ul>
+                    <h3 class="muted"><a href="/">Hackers Projects</a></h3>
+                </div>
+            <hr>
+
+            {% block content %}
+            {% endblock %}     
+            </div> 
+
+        <hr>
+        <div class="footer">
+            <p>Hackers Projects is open source. Feel free to contribute.</p>
+            <p>This project is funded via donations.</p>
+        </div>
+
+    </div>
+
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="/media/bootstrap/js/bootstrap.js"></script>
+
+    {% block js %}
+    {% endblock %}
+
+</body>
+</html>

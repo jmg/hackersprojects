@@ -1,0 +1,139 @@
+body {
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+
+a:hover {
+    text-decoration: none !important;
+}
+
+ul {
+    list-style: none;
+}
+
+.container-narrow {
+    margin: 0 auto;
+    max-width: 980px;
+}
+
+#content-wrapper {
+    min-height: 700px;
+}
+
+.container-narrow > hr {
+    margin: 30px 0;
+}
+
+.jumbotron {
+    margin: 60px 0;
+    text-align: center;
+}
+
+.jumbotron h1 {
+    font-size: 56px;
+    line-height: 1;
+    padding-bottom: 40px;
+}
+
+.jumbotron .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+}
+
+.marketing {
+    margin: 30px 0;
+}
+.marketing p + h4 {
+    margin-top: 28px;
+}
+
+.lead {
+    margin-bottom: 30px !important;
+}
+
+.repo-link {
+    padding-left: 20px;
+}
+
+.project-repo-link {
+    padding-left: 5px;
+}
+
+.img-up {
+    position: relative;
+    top: -2px;
+    cursor: pointer;
+}
+
+.btn-github {
+    font-family: 'lucida grande', tahoma, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    display: inline-block;
+    height: 22px;
+    padding: 0 1em;
+    border: 1px solid #999;
+    border-radius: 2px;
+    margin: 0;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 22px;
+    white-space: nowrap;
+    cursor: pointer;
+    color: #222;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    -webkit-appearance: none;
+    height: 36px;
+    line-height: 36px;
+    font-size: 20px;    
+    border-color: #D4D4D4;
+    background: #ECECEC;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#F4F4F4), to(#ECECEC));
+    background-image: -webkit-linear-gradient(#F4F4F4, #ECECEC);
+    background-image: -moz-linear-gradient(#F4F4F4, #ECECEC);
+    background-image: -ms-linear-gradient(#F4F4F4, #ECECEC);
+    background-image: -o-linear-gradient(#F4F4F4, #ECECEC);
+    background-image: linear-gradient(#F4F4F4, #ECECEC);
+    text-decoration: none;
+}
+.btn-github:hover,
+.btn-github:focus {
+    border-color: #518cc6;
+    border-bottom-color: #2a65a0;
+    color: #fff;
+    background-color: #599bdc;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#599bdc), to(#3072b3));
+    background-image: -webkit-linear-gradient(#599bdc, #3072b3);
+    background-image: -moz-linear-gradient(#599bdc, #3072b3);
+    background-image: -ms-linear-gradient(#599bdc, #3072b3);
+    background-image: -o-linear-gradient(#599bdc, #3072b3);
+    background-image: linear-gradient(#599bdc, #3072b3);
+    text-decoration: none;
+}
+
+.btn-github:active {
+    border-color: #2A65A0;
+    border-bottom-color: #518CC6;
+    color: #fff;
+    background: #3072B3;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#3072b3), to(#599bdc));
+    background: -webkit-linear-gradient(#3072b3, #599bdc);
+    background: -moz-linear-gradient(#3072b3, #599bdc);
+    background: -ms-linear-gradient(#3072b3, #599bdc);
+    background: -o-linear-gradient(#3072b3, #599bdc);
+    background: linear-gradient(#3072b3, #599bdc);
+}
+.btn-github:before {
+    content: "";
+    float: left;
+    width: 36px;
+    height: 36px;
+    background: url(/media/img/auth-icons.png) no-repeat;
+    background-position: -72px -22px;
+    margin: 0 0.6em 0 -0.6em;
+}

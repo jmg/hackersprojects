@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block js %}
+<script type="text/javascript">
+function loadRepos() {
+
+    $.post("/user/importrepos/", {}, function(response) {
+        $("#repos").html(response)
+    });
+}
+
+function share(repoId) {
+
+    $.post("/user/share/", {"repo": repoId}, function(response) {
+
+        var button = $("#btn-share-" + repoId);
+        button.removeClass("btn-primary");
+        button.addClass("btn-info");
+        button.text("Shared");
+    });
+}
+
+{% if not profile.imported_repos %}
+$(function() {    
+    loadRepos();    
+});
+{% endif %}
+
+</script>
+{% endblock %}
+
+{% block content %}
+
+<div id="repos">
+    {% include "user/importrepos.html" %}
+</div>
+
+{% endblock %}
