@@ -14,9 +14,9 @@ class BaseModel(models.Model):
 class Profile(BaseModel):
 
     username = models.CharField(max_length=300)
-    email = models.CharField(max_length=300)    
+    email = models.CharField(max_length=300, null=True, blank=True)
     remote_id = models.CharField(max_length=300)
-    url = models.CharField(max_length=300, null=True)
+    url = models.CharField(max_length=300, null=True, blank=True)
     access_token = models.CharField(max_length=300, blank=True, null=True)
 
     imported_repos = models.BooleanField(default=False)
@@ -24,9 +24,9 @@ class Profile(BaseModel):
 
 class Repository(BaseModel):
 
-    name = models.CharField(max_length=300)
-    url = models.CharField(max_length=300)
-    description = models.TextField()
+    name = models.CharField(max_length=300, null=True, blank=True)
+    url = models.CharField(max_length=300, null=True, blank=True)
+    description = models.TextField(null=True, blank=True)
 
     remote_id = models.CharField(max_length=300)
     shared = models.BooleanField(default=False)

@@ -15,9 +15,9 @@ class RepositoryService(BaseService):
             repository = self.get_or_new(remote_id=repo["id"])
 
             data = {
-                "name": repo["name"],
-                "url": repo["html_url"],
-                "description": repo["description"],
+                "name": repo.get("name"),
+                "url": repo.get("html_url"),
+                "description": repo.get("description"),
                 "user": profile,
             }
 
