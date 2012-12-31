@@ -10,15 +10,15 @@
 
 <hr>      
 
-<h3>Trending now</h3>
+<h3><a href="/trending/">Trending now</a></h3>
 
 <div class="row-fluid marketing">    
 
     {% for column in projects_columns %}
     <div class="span6">
 
-        {% for project in column %}
-        <h4><a href="{{project.repository.url}}">{{project.repository.name}}</a></h4>
+        {% for project in column %}        
+        <h4><a href="{{project.repository.url}}">{{project.repository.name}}</a> by <a href="{{project.user.url}}" target="_blank">{{project.user.username}}</a></h4>
         <p>{{project.repository.description}}</p>
         {% endfor %}
     </div>

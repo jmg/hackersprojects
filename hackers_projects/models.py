@@ -1,17 +1,28 @@
 from django.db import models
+from hackers_projects.utils.date import get_time_since
 
 
-class Profile(models.Model):
+class BaseModel(models.Model):
+
+    def object_age(self):
+        return get_time_since(self.submited)
+
+    class Meta:
+        abstract = True
+
+
+class Profile(BaseModel):
 
     username = models.CharField(max_length=300)
     email = models.CharField(max_length=300)    
     remote_id = models.CharField(max_length=300)
+    url = models.CharField(max_length=300, null=True)
     access_token = models.CharField(max_length=300, blank=True, null=True)
 
     imported_repos = models.BooleanField(default=False)
 
 
-class Repository(models.Model):
+class Repository(BaseModel):
 
     name = models.CharField(max_length=300)
     url = models.CharField(max_length=300)
@@ -23,7 +34,7 @@ class Repository(models.Model):
     user = models.ForeignKey("Profile")
 
 
-class Project(models.Model):
+class Project(BaseModel):
 
     submited = models.DateTimeField()
     votes = models.PositiveIntegerField(default=0)
@@ -34,7 +45,10 @@ class Project(models.Model):
     voted_by = models.ManyToManyField("Profile", related_name="votes")
 
 
-class Comment(models.Model):
+class Comment(BaseModel):
 
     content = models.TextField()
     project = models.ForeignKey("Project")
+    submited = models.DateTimeField(null=True)
+
+    user = models.ForeignKey("Profile", null=True)

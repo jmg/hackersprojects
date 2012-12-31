@@ -22,10 +22,13 @@ class BaseService(object):
 
         return decorator
 
-    def get_page(self, page=0, size=None, min_page=None, **kwargs):
+    def get_page(self, page=None, size=None, min_page=None, **kwargs):
 
         if size is None:
             size = self._page_size
+
+        if page is None:
+            page = 0
 
         page = int(page)
 

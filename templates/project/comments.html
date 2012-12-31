@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block js %}
+<script type="text/javascript">
+
+function submitComment(form) {
+
+    if (!$.trim(form.comment.value)) return;
+
+    var data = $(form).serialize();
+    $.post("/comment/new/", data, function(response) {
+
+        $("#first-comment").hide();
+        $("#comments").append(response);
+        $("#comment-area").val("");
+    });
+
+    return false;
+}   
+
+</script>
+{% endblock %}
+
+{% block content %} 
+
+<h4><a href="{{project.repository.url}}" target="_blank">{{project.repository.name}}</a> by <a href="{{project.user.url}}" target="_blank">{{project.user.username}}</a> thread</h4>
+
+<ul id="comments">
+{% if not comments %}
+<span id="first-comment">Be the first to write a comment!</span>
+{% else %}
+{% for comment in comments %}
+    {% include "project/_comment.html" %}
+{% endfor %}
+{% endif %}
+</ul>
+
+<form id="comment-form" onsubmit="submitComment(this); return false;">
+    <fieldset>    
+        <input type="hidden" name="project" value="{{project.id}}">
+        <textarea id="comment-area" rows="6" name="comment"></textarea>
+        <div><button type="submit" class="btn">Comment</button></div>
+    </fieldset>    
+</form>
+
+{% endblock %}

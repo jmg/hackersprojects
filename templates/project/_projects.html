@@ -8,7 +8,11 @@ function vote(projectId) {
 
         var response = JSON.parse(response);
         $("#counter-" + projectId).text(response.votes);
-        $("#arrow-" + projectId).hide();
+
+        var empty = $("<span>");
+        empty.addClass("empty-img");
+
+        $("#arrow-" + projectId).replaceWith(empty);
     });
 }
 </script>
@@ -20,17 +24,24 @@ function vote(projectId) {
 
 <div class="row-fluid marketing">    
 
-    {% for project in projects %}
-        <ul>
-            <li>
-                {% if not profile in project.voted_by.all %}
-                <img id="arrow-{{project.id}}" onclick="vote({{project.id}})" class="img-up" src="/media/img/up.png"></a>
-                {% endif %}                
-                <span id="counter-{{project.id}}">{{project.votes}}</span>                
-                <a class="project-repo-link" href="{{project.repository.url}}" target="_blank">{{project.repository.name}}</a> - {{project.repository.description}}
-            </li>
-        </ul>
+    {% if projects %}
+    <ul>
+    {% for project in projects %}    
+        <li>
+            {% if not profile in project.voted_by.all %}
+            <img id="arrow-{{project.id}}" onclick="vote({{project.id}})" class="img-up" src="/media/img/up.png"></a>
+            {% else %}
+            <span class="empty-img"></span>
+            {% endif %}
+            <span id="counter-{{project.id}}">{{project.votes}}</span>                
+            <a class="project-repo-link" href="{{project.repository.url}}" target="_blank">{{project.repository.name}}</a> by <a href="{{project.user.url}}" target="_blank">{{project.user.username}}</a> - {{project.repository.description}} - <a href="/projects/{{project.id}}/comments/">({{project.comment_set.count}} comment{% if project.comment_set.count != 1 %}s{% endif %})</a> - <span class="datetime">{{project.object_age}}</span>
+        </li>    
     {% endfor %}
+    </ul>
+    <a class="more-projects" href="/{{view_name}}/?page={{next_page}}">More</a>
+    {% else %}
+    There are no more projects so far. <a href="{{GITHUB_AUHT_URL}}">Submit yours!</a>
+    {% endif %}
 </div>
 
 {% endblock %}

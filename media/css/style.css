@@ -9,6 +9,31 @@ a:hover {
 
 ul {
     list-style: none;
+    margin: 0 !important;
+}
+
+ul li {
+     margin-bottom: 8px;
+}
+
+textarea {
+    width: 600px !important;
+}
+
+.content {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    width: 800px;
+    line-height: 24px;
+}
+
+.content p {
+    padding-bottom: 20px;
+}
+
+.paypal-form {
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .container-narrow {
@@ -17,7 +42,20 @@ ul {
 }
 
 #content-wrapper {
-    min-height: 700px;
+    min-height: 750px;
+}
+
+#comments {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.btn-info {
+    cursor: default !important;
+}
+
+.datetime {
+    font-size: 12px;
 }
 
 .container-narrow > hr {
@@ -40,8 +78,12 @@ ul {
     padding: 14px 24px;
 }
 
+.empty-img {
+    margin: 12px;
+}
+
 .marketing {
-    margin: 30px 0;
+    margin: 20px 0;
 }
 .marketing p + h4 {
     margin-top: 28px;
@@ -63,6 +105,12 @@ ul {
     position: relative;
     top: -2px;
     cursor: pointer;
+}
+
+.more-projects {
+    position: relative;
+    top: 10px;
+    left: 30px;
 }
 
 .btn-github {

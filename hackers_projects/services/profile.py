@@ -10,6 +10,7 @@ class ProfileService(BaseService):
 
         profile = self.get_or_new(username=user["login"])
         profile.email = user["email"]
+        profile.url = user["html_url"]
         profile.access_token = token
         profile.save()
 

@@ -20,5 +20,9 @@ class IndexView(BaseView):
 
 class AboutView(BaseView):
 
-    url = r"^about$"
+    url = r"^about/$"
 
+
+class DonationsView(BaseView):
+
+    url = r"^donations/$"
