@@ -4,8 +4,13 @@
 <script type="text/javascript">
 function loadRepos() {
 
+    var loading = $("#loading");
+    loading.show();
+
     $.post("/user/importrepos/", {}, function(response) {
+
         $("#repos").html(response)
+        loading.hide();
     });
 }
 
@@ -21,8 +26,8 @@ function share(repoId) {
 }
 
 {% if not profile.imported_repos %}
-$(function() {    
-    loadRepos();    
+$(function() {
+    loadRepos();
 });
 {% endif %}
 
@@ -32,6 +37,11 @@ $(function() {
 {% block content %}
 
 <div id="repos">
+    <div id="loading">
+        <img src="/media/img/loading.gif">
+        <h4>Importing your github repos...</h4>
+    </div>
+
     {% include "user/importrepos.html" %}
 </div>
 

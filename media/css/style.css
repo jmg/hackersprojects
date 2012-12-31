@@ -82,6 +82,12 @@ textarea {
     margin: 12px;
 }
 
+#loading {
+    display: none;
+    position: relative;
+    top: 200px;
+}
+
 .marketing {
     margin: 20px 0;
 }
