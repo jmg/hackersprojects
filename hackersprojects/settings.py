@@ -145,7 +145,7 @@ HOST = "http://www.hackersprojects.com"
 
 GITHUB_CLIENT_ID = "4e3256ccc69616737fc2"
 GITHUB_SECRET_KEY = "784197833e793dec779f62c2183fc3263a2c611a"
-GITHUB_REDIRECT_URI = "{}/user/new".format(HOST)
+GITHUB_REDIRECT_URI = "{0}/user/new".format(HOST)
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

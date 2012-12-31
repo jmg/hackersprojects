@@ -16,7 +16,7 @@ class GitHubService(object):
             "redirect_uri": GITHUB_REDIRECT_URI,
         }
 
-        return "{}/?{}".format(base_url, urlencode(params))
+        return "{0}/?{1}".format(base_url, urlencode(params))
 
     def get_access_token(self, code):
 
@@ -36,7 +36,7 @@ class GitHubService(object):
 
     def api_method(self, path, params):
 
-        url = "https://api.github.com/{}".format(path)
+        url = "https://api.github.com/{0}".format(path)
 
         response = requests.get(url, params=params)
         return json.loads(response.text)

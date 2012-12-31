@@ -24,14 +24,14 @@ class TrendingView(BaseProjectsView):
 
     service = TrendingProjectService()
     view_name = "trending"
-    url = r"^{}/$".format(view_name)
+    url = r"^{0}/$".format(view_name)
 
 
 class NewView(BaseProjectsView):
 
     service = ProjectService()
     view_name = "new"
-    url = r"^{}/$".format(view_name)
+    url = r"^{0}/$".format(view_name)
 
 
 class Comments(BaseView):
