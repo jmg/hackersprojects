@@ -33,8 +33,10 @@ function vote(projectId) {
             {% else %}
             <span class="empty-img"></span>
             {% endif %}
-            <span id="counter-{{project.id}}">{{project.votes}}</span>                
-            <a class="project-repo-link" href="{{project.repository.url}}" target="_blank">{{project.repository.name}}</a> by <a href="{{project.user.url}}" target="_blank">{{project.user.username}}</a> - {{project.repository.description}} - <a href="/projects/{{project.id}}/comments/">({{project.comment_set.count}} comment{% if project.comment_set.count != 1 %}s{% endif %})</a> - <span class="datetime">{{project.object_age}}</span>
+            <span id="counter-{{project.id}}">{{project.votes}}</span>
+            <div class="project-content">
+                <a class="project-repo-link" href="{{project.repository.url}}" target="_blank">{{project.repository.name}}</a> by <a href="{{project.user.url}}" target="_blank">{{project.user.username}}</a> - {{project.repository.description}} - <a href="/projects/{{project.id}}/comments/">({{project.comment_set.count}} comment{% if project.comment_set.count != 1 %}s{% endif %})</a> - <span class="datetime">{{project.object_age}}</span>
+            </div>
         </li>    
     {% endfor %}
     </ul>

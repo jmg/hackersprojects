@@ -78,6 +78,10 @@ textarea {
     padding: 14px 24px;
 }
 
+.project-content {
+    display: inline;
+}
+
 .empty-img {
     margin: 12px;
 }
