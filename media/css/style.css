@@ -80,6 +80,9 @@ textarea {
 
 .project-content {
     display: inline;
+    position: relative;
+    left: 50px;
+    margin-left: -43px !important;
 }
 
 .empty-img {
