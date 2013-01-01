@@ -28,7 +28,7 @@ function vote(projectId) {
     <ul>
     {% for project in projects %}    
         <li>
-            {% if not profile in project.voted_by.all %}
+            {% if profile and not profile in project.voted_by.all %}
             <img id="arrow-{{project.id}}" onclick="vote({{project.id}})" class="img-up" src="/media/img/up.png"></a>
             {% else %}
             <span class="empty-img"></span>
