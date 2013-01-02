@@ -13,6 +13,14 @@ class ProjectService(BaseService):
 
         return self.order_by("-id")[offset:limit]
 
+    def new_from_repo(self, repo):
+
+        project = self.get_or_new(repository=repo)
+        project.user = repo.user
+        project.save()
+
+        return project
+
 
 class TrendingProjectService(ProjectService):
 

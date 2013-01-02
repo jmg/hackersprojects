@@ -1,5 +1,3 @@
-from datetime import datetime
-
 from base import BaseView
 from hackers_projects.services.github import GitHubService
 from hackers_projects.services.profile import ProfileService
@@ -58,8 +56,7 @@ class ShareView(BaseView):
 
         repo = RepositoryService().get(id=self.request.POST.get("repo"))
 
-        project = ProjectService().new(repository=repo, user=self.get_user(), submited=datetime.utcnow())
-        project.save()
+        project = ProjectService().new_from_repo(repo)        
 
         repo.shared = True
         repo.save()

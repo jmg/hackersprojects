@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.db import models
 from hackers_projects.utils.date import get_time_since
 
@@ -36,7 +38,7 @@ class Repository(BaseModel):
 
 class Project(BaseModel):
 
-    submited = models.DateTimeField()
+    submited = models.DateTimeField(default=datetime.utcnow())
     votes = models.PositiveIntegerField(default=0)
 
     repository = models.ForeignKey("Repository")
